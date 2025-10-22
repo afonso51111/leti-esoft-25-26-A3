@@ -1,105 +1,124 @@
 @startuml
-' Modelo de Domínio (US06)
-' Baseado em LETI-ESOFT25-26-ProjectAssignment.pdf
+' Modelo de Domínio Corrigido (US06)
+' Baseado em LETI-ESOFT25-26-ProjectAssignment.pdf e Glossário.
+' Todos os artefactos devem estar em Inglês
 
 skinparam classAttributeIconSize 0
+hide empty members
+title Domain Model - PVMS
 
-abstract class "CentroVacunacao" {
-    nome
-    moradaPostal
-    telefone
+' --- Classes de Papéis (Roles) ---
+abstract class "Personnel" {
+    ID
+    name
+    postalAddress
+    phoneNumber
+    email
+}
+
+class "Receptionist" extends "Personnel" {}
+
+class "Nurse" extends "Personnel" {}
+
+class "SNSUser" {
+    name
+    dateOfBirth
+    sex
+    postalAddress
+    phoneNumber
+    email
+    citizenCardNumber
+    snsUserNumber
+}
+
+class "DGSAdministrator" {}
+
+' --- Classes de Locais (Places) ---
+abstract class "VaccinationCenter" {
+    name
+    postalAddress
+    phoneNumber
     email
     website
-    horarioAbertura
-    horarioFecho
-    maxVacinasPorHora
+    openingHours
+    closingHours
+    maxVaccinesPerHour
 }
 
-class "CentroSaude" extends "CentroVacunacao" {
-    ' Pode administrar vários tipos de vacinas [cite: 32]
+class "HealthcareCenter" extends "VaccinationCenter" {
+    ' Can administer various vaccine types [cite: 32]
 }
 
-class "CentroVacinacaoMassiva" extends "CentroVacunacao" {
-    ' Administra um único tipo de vacina [cite: 33]
+class "CommunityMassVaccinationCenter" extends "VaccinationCenter" {
+    ' Administers a single vaccine type [cite: 33]
 }
 
-abstract class "Pessoal" {
-    ID
-    nome
-    moradaPostal
-    telefone
-    email
+' --- Classes de Transações e Eventos ---
+class "Appointment" {
+    date
+    time
+    status (e.g., Scheduled, Arrived, Completed)
 }
 
-class "Rececionista" extends "Pessoal" {}
-class "Enfermeiro" extends "Pessoal" {}
-
-class "UtenteSNS" {
-    nome
-    dataNascimento
-    sexo
-    moradaPostal
-    telefone
-    email
-    numCartaoCidadao
-    numUtenteSNS
+class "VaccinationEvent" {
+    lotNumber
+    administrationTimestamp
 }
 
-class "Agendamento" {
-    data
-    hora
+class "AdverseReaction" {
+    description
+    registrationTimestamp
 }
 
-class "EventoVacinacao" {
-    marca
-    lote
-    dataHoraAdministracao
+' --- Classes de Documentos e Descrições ---
+class "VaccinationCertificate" {}
+
+class "VaccineType" {
+    code
+    disease
+    shortDescription
 }
 
-class "ReacaoAdversa" {
-    descricao
-    dataHoraRegisto
+class "Vaccine" {
+    commercialName
+    brand
 }
 
-class "TipoVacina" {
-    codigo
-    doenca
-    descricaoCurta
+class "VaccineTechnology" {
+    ' e.g., Messenger RNA, Viral Vector [cite: 87]
 }
 
-class "Vacina" {
-    nomeComercial
-    marca
-    tecnologia
-}
+' ---------- Relações (Associations) ----------
 
-' Relações Principais
-UtenteSNS "1" -- "0..*" Agendamento : agenda
-CentroVacunacao "1" -- "0..*" Agendamento : ocorre em
+' Relações de Agendamento (Appointment)
+SNSUser "1" -- "0..*" Appointment : "schedules" [cite: 64]
+Receptionist "0..*" -- "0..*" Appointment : "schedules (in-person)"
+Receptionist "1" -- "0..*" Appointment : "registers arrival for"
+VaccinationCenter "1" -- "0..*" Appointment : "occurs at" [cite: 65]
+Appointment "1" -- "1" VaccineType : "is for" [cite: 65]
 
-' Relação Centro-Vacina
-CentroSaude "1" -- "1..*" TipoVacina : administra
-CentroVacinacaoMassiva "1" -- "1" TipoVacina : administra
+' Relações de Eventos (Event)
+Appointment "1" -- "0..1" VaccinationEvent : "results in"
+VaccinationEvent "0..*" -- "1" Nurse : "recorded by"
+VaccinationEvent "1" -- "1" Vaccine : "uses (brand)"
+VaccinationEvent "1" -- "1" VaccineType : "is for (type)"
+VaccinationEvent "1" -- "0..*" AdverseReaction : "can cause" [cite: 81-82]
+AdverseReaction "0..*" -- "1" Nurse : "recorded by" [cite: 82]
 
-' Relação Agendamento-TipoVacina
-Agendamento "1" -- "1" TipoVacina : para
+' Relações de Vacinas (Vaccine)
+Vaccine "0..*" -- "1" VaccineType : "is of"
+Vaccine "0..*" -- "1" VaccineTechnology : "uses"
+HealthcareCenter "1" -- "1..*" VaccineType : "administers" [cite: 32]
+CommunityMassVaccinationCenter "1" -- "1" VaccineType : "administers" [cite: 33]
 
-' Relação Rececionista-Agendamento
-Rececionista "1" -- "0..*" Agendamento : regista chegada de
+' Relações de Certificados (Certificate)
+VaccinationCertificate "0..*" -- "1" SNSUser : "obtained by" [cite: 50]
+VaccinationCertificate "0..*" -- "1" Nurse : "issued by (on-site)" [cite: 56]
 
-' Relação Enfermeiro-Evento
-Enfermeiro "1" -- "0..*" EventoVacinacao : administra
-
-' Relação Agendamento-Evento
-Agendamento "1" -- "1" EventoVacinacao : resulta em
-
-' Relação Evento-Reacao
-EventoVacinacao "1" -- "0..*" ReacaoAdversa : pode causar
-
-' Relação Evento-Vacina (a vacina específica administrada)
-EventoVacinacao "1" -- "1" Vacina : usa
-
-' Relação Vacina-TipoVacina
-Vacina "0..*" -- "1" TipoVacina : é do tipo
+' Relações de Gestão (Admin)
+DGSAdministrator "1" -- "0..*" VaccinationCenter : "manages/registers" [cite: 83]
+DGSAdministrator "1" -- "0..*" Personnel : "manages/registers" [cite: 83]
+DGSAdministrator "1" -- "0..*" Vaccine : "manages/registers" [cite: 84]
+DGSAdministrator "1" -- "0..*" VaccineType : "manages/registers" [cite: 84]
 
 @enduml

@@ -9,8 +9,8 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Business Transactions**
 
-* [cite_start]`Agendamento` (Appointment): Represents the act of an SNS user scheduling a vaccination [cite: 64-65].
-* [cite_start]`EventoVacinacao` (Vaccination Event): Records the act of administering a vaccine to a user[cite: 79].
+* `Agendamento` (Appointment): Represents the act of an SNS user scheduling a vaccination.
+* `EventoVacinacao` (Vaccination Event): Records the act of administering a vaccine to a user.
 
 ---
 
@@ -22,38 +22,38 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Product/Service related to a Transaction or Transaction Line Item**
 
-* [cite_start]`Vacina` (Vaccine): The specific product (brand, commercial name) administered[cite: 86].
-* [cite_start]`TipoVacina` (Vaccine Type): The generic service/product being scheduled and administered (e.g., Covid-19, Influenza)[cite: 85].
+* `Vacina` (Vaccine): The specific product (brand, commercial name) administered.
+* `TipoVacina` (Vaccine Type): The generic service/product being scheduled and administered (e.g., Covid-19, Influenza).
 
 ---
 
 **Transaction Records**
 
-* [cite_start]`CertificadoVacinacao` (Vaccination Certificate): A record issued that proves vaccination[cite: 50, 56].
+* `CertificadoVacinacao` (Vaccination Certificate): A record issued that proves vaccination.
 
 ---
 
 **Roles of People or Organizations**
 
-* [cite_start]`UtenteSNS` (SNS User): The citizen who receives the vaccine [cite: 50-51].
-* [cite_start]`Rececionista` (Receptionist): Staff who manage user arrivals and in-person appointments[cite: 58, 69, 73].
-* [cite_start]`Enfermeiro` (Nurse): Staff who administer the vaccine and record the event[cite: 58, 75, 79].
-* [cite_start]`AdministradorDGS` (DGS Administrator): Staff who configure the system[cite: 83].
+* `UtenteSNS` (SNS User): The citizen who receives the vaccine.
+* `Rececionista` (Receptionist): Staff who manage user arrivals and in-person appointments.
+* `Enfermeiro` (Nurse): Staff who administer the vaccine and record the event.
+* `AdministradorDGS` (DGS Administrator): Staff who configure the system.
 
 ---
 
 **Places**
 
-* [cite_start]`CentroVacunacao` (Vaccination Center): The generic place where vaccination occurs[cite: 57].
-* [cite_start]`CentroSaude` (Healthcare Center): A specific type of center [cite: 52-53].
-* [cite_start]`CentroVacinacaoMassiva` (Community Mass Vaccination Center): A specific and temporary type of center[cite: 52, 54].
+* `CentroVacunacao` (Vaccination Center): The generic place where vaccination occurs.
+* `CentroSaude` (Healthcare Center): A specific type of center.
+* `CentroVacinacaoMassiva` (Community Mass Vaccination Center): A specific and temporary type of center.
 
 ---
 
 **Noteworthy Events**
 
-* [cite_start]`Chegada` (Arrival): The event of a user arriving at the center[cite: 73].
-* [cite_start]`ReacaoAdversa` (Adverse Reaction): An event that may occur after vaccination and must be recorded [cite: 81-82].
+* `Chegada` (Arrival): The event of a user arriving at the center.
+* `ReacaoAdversa` (Adverse Reaction): An event that may occur after vaccination and must be recorded.
 
 ---
 
@@ -65,9 +65,9 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Descriptions of Things**
 
-* [cite_start]`Vacina` (Vaccine): Describes a specific product with a commercial name, brand, and technology[cite: 86].
-* [cite_start]`TipoVacina` (Vaccine Type): Describes a vaccine category with a code, disease, and description[cite: 85].
-* [cite_start]`TecnologiaVacina` (Vaccine Technology): Describes the technology used in a vaccine [cite: 86-87].
+* `Vacina` (Vaccine): Describes a specific product with a commercial name, brand, and technology.
+* `TipoVacina` (Vaccine Type): Describes a vaccine category with a code, disease, and description.
+* `TecnologiaVacina` (Vaccine Technology): Describes the technology used in a vaccine.
 
 ---
 
@@ -79,7 +79,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Containers**
 
-* [cite_start]`CentroVacunacao` (Vaccination Center): Contains rooms (e.g., waiting room [cite: 74][cite_start], recovery room [cite: 80]) and staff.
+* `CentroVacunacao` (Vaccination Center): Contains rooms (e.g., waiting room, recovery room) and staff.
 
 ---
 
@@ -91,19 +91,19 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **(Other) Organizations**
 
-* [cite_start]`DGS`: The organization that manages the entire system[cite: 28, 38].
+* `DGS`: The organization that manages the entire system.
 
 ---
 
 **Other (External/Collaborating) Systems**
 
-* [cite_start](N/A for the domain model, although mentioned in the architecture [cite: 115-116]).
+* (N/A for the domain model, although mentioned in the architecture).
 
 ---
 
 **Records of finance, work, contracts, legal matters**
 
-* [cite_start]`HistoricoVacinacao` (Vaccination History): Mentioned as being reviewed by the nurse[cite: 77].
+* `HistoricoVacinacao` (Vaccination History): Mentioned as being reviewed by the nurse.
 
 ---
 
@@ -115,7 +115,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Documents mentioned/used to perform some work**
 
-* [cite_start]`CertificadoVacinacao` (Vaccination Certificate)[cite: 50, 56].
+* `CertificadoVacinacao` (Vaccination Certificate).
 
 ---
 
