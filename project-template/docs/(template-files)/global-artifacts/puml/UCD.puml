@@ -1,25 +1,105 @@
 @startuml
-'https://plantuml.com/use-case-diagram
+' Modelo de Domínio (US06)
+' Baseado em LETI-ESOFT25-26-ProjectAssignment.pdf
 
-title This is a Default Use Case Diagram to serve as an example
+skinparam classAttributeIconSize 0
 
-:Main Admin: as Admin
-(UC01 - Start) as (Start)
-(UC02 - Use the application) as (Use)
+abstract class "CentroVacunacao" {
+    nome
+    moradaPostal
+    telefone
+    email
+    website
+    horarioAbertura
+    horarioFecho
+    maxVacinasPorHora
+}
 
-User -> (Start)
-User --> (Use)
+class "CentroSaude" extends "CentroVacunacao" {
+    ' Pode administrar vários tipos de vacinas [cite: 32]
+}
 
-Admin ---> (Use)
+class "CentroVacinacaoMassiva" extends "CentroVacunacao" {
+    ' Administra um único tipo de vacina [cite: 33]
+}
 
-note right of Admin : This is an example.
+abstract class "Pessoal" {
+    ID
+    nome
+    moradaPostal
+    telefone
+    email
+}
 
-note right of (Use)
-A note can also
-be on several lines
-end note
+class "Rececionista" extends "Pessoal" {}
+class "Enfermeiro" extends "Pessoal" {}
 
-note "This note is connected\nto several objects." as N2
-(Start) .. N2
-N2 .. (Use)
+class "UtenteSNS" {
+    nome
+    dataNascimento
+    sexo
+    moradaPostal
+    telefone
+    email
+    numCartaoCidadao
+    numUtenteSNS
+}
+
+class "Agendamento" {
+    data
+    hora
+}
+
+class "EventoVacinacao" {
+    marca
+    lote
+    dataHoraAdministracao
+}
+
+class "ReacaoAdversa" {
+    descricao
+    dataHoraRegisto
+}
+
+class "TipoVacina" {
+    codigo
+    doenca
+    descricaoCurta
+}
+
+class "Vacina" {
+    nomeComercial
+    marca
+    tecnologia
+}
+
+' Relações Principais
+UtenteSNS "1" -- "0..*" Agendamento : agenda
+CentroVacunacao "1" -- "0..*" Agendamento : ocorre em
+
+' Relação Centro-Vacina
+CentroSaude "1" -- "1..*" TipoVacina : administra
+CentroVacinacaoMassiva "1" -- "1" TipoVacina : administra
+
+' Relação Agendamento-TipoVacina
+Agendamento "1" -- "1" TipoVacina : para
+
+' Relação Rececionista-Agendamento
+Rececionista "1" -- "0..*" Agendamento : regista chegada de
+
+' Relação Enfermeiro-Evento
+Enfermeiro "1" -- "0..*" EventoVacinacao : administra
+
+' Relação Agendamento-Evento
+Agendamento "1" -- "1" EventoVacinacao : resulta em
+
+' Relação Evento-Reacao
+EventoVacinacao "1" -- "0..*" ReacaoAdversa : pode causar
+
+' Relação Evento-Vacina (a vacina específica administrada)
+EventoVacinacao "1" -- "1" Vacina : usa
+
+' Relação Vacina-TipoVacina
+Vacina "0..*" -- "1" TipoVacina : é do tipo
+
 @enduml
