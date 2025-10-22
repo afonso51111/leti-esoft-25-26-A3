@@ -131,28 +131,28 @@ An association is a relationship between instances of objects that indicates a r
 * **_A_** is related with a transaction (item) of **_B_**
 * etc.
 
-| Concept (A) | Association | Concept (B) |
-| :--- | :---: | ---: |
-| `UtenteSNS` | schedules | [cite_start]`Agendamento` [cite: 64] |
-| `Rececionista` | registers | [cite_start]`Chegada` [cite: 73] |
-| `Rececionista` | schedules (in-person) | [cite_start]`Agendamento` [cite: 69] |
-| `Enfermeiro` | registers | [cite_start]`EventoVacinacao` [cite: 79] |
-| `Enfermeiro` | registers | [cite_start]`ReacaoAdversa` [cite: 82] |
-| `Enfermeiro` | accesses | [cite_start]`HistoricoVacinacao` [cite: 77] |
-| `Enfermeiro` | issues | [cite_start]`CertificadoVacinacao` [cite: 56] |
-| `AdministradorDGS` | registers / manages | [cite_start]`CentroVacunacao` [cite: 83] |
-| `AdministradorDGS` | registers / manages | [cite_start]`Pessoal` (Enfermeiro, Rececionista) [cite: 83] |
-| `AdministradorDGS` | configures | [cite_start]`TipoVacina` / `Vacina` [cite: 84, 86] |
-| `Agendamento` | occurs at | [cite_start]`CentroVacunacao` [cite: 65] |
-| `Agendamento` | is for | [cite_start]`TipoVacina` [cite: 65] |
-| `EventoVacinacao` | uses | [cite_start]`Vacina` [cite: 79] |
-| `EventoVacinacao` | can cause | [cite_start]`ReacaoAdversa` [cite: 81-82] |
-| `Agendamento` | results in | `EventoVacinacao` |
-| `Vacina` | is of | [cite_start]`TipoVacina` [cite: 86] |
-| `CentroSaude` | is a (type of) | [cite_start]`CentroVacunacao` [cite: 53] |
-| `CentroVacinacaoMassiva` | is a (type of) | [cite_start]`CentroVacunacao` [cite: 54] |
-| `CentroSaude` | administers (various) | [cite_start]`TipoVacina` [cite: 53] |
-| `CentroVacinacaoMassiva` | administers (one) | [cite_start]`TipoVacina` [cite: 54] |
+| Concept (A) | Association |                                                 Concept (B) |
+| :--- | :---: |------------------------------------------------------------:|
+| `UtenteSNS` | schedules |                                               `Agendamento` |
+| `Rececionista` | registers |                                                   `Chegada` |
+| `Rececionista` | schedules (in-person) |                                               `Agendamento` |
+| `Enfermeiro` | registers |                                           `EventoVacinacao` |
+| `Enfermeiro` | registers |                                             `ReacaoAdversa` |
+| `Enfermeiro` | accesses |                                        `HistoricoVacinacao` |
+| `Enfermeiro` | issues |                                      `CertificadoVacinacao` |
+| `AdministradorDGS` | registers / manages |                                           `CentroVacunacao` |
+| `AdministradorDGS` | registers / manages |                        `Pessoal` (Enfermeiro, Rececionista) |
+| `AdministradorDGS` | configures |                                     `TipoVacina` / `Vacina` |
+| `Agendamento` | occurs at |                                           `CentroVacunacao` |
+| `Agendamento` | is for |                                                `TipoVacina` |
+| `EventoVacinacao` | uses |                                                    `Vacina` |
+| `EventoVacinacao` | can cause |                                             `ReacaoAdversa` |
+| `Agendamento` | results in |                                           `EventoVacinacao` |
+| `Vacina` | is of |                                                `TipoVacina` |
+| `CentroSaude` | is a (type of) |                                           `CentroVacunacao` |
+| `CentroVacinacaoMassiva` | is a (type of) |                                           `CentroVacunacao` |
+| `CentroSaude` | administers (various) |                                                `TipoVacina` |
+| `CentroVacinacaoMassiva` | administers (one) |                                                `TipoVacina` |
 
 ## Domain Model
 

@@ -46,11 +46,11 @@ abstract class "VaccinationCenter" {
 }
 
 class "HealthcareCenter" extends "VaccinationCenter" {
-    ' Can administer various vaccine types [cite: 32]
+    ' Can administer various vaccine types
 }
 
 class "CommunityMassVaccinationCenter" extends "VaccinationCenter" {
-    ' Administers a single vaccine type [cite: 33]
+    ' Administers a single vaccine type
 }
 
 ' --- Classes de Transações e Eventos ---
@@ -85,40 +85,40 @@ class "Vaccine" {
 }
 
 class "VaccineTechnology" {
-    ' e.g., Messenger RNA, Viral Vector [cite: 87]
+    ' e.g., Messenger RNA, Viral Vector
 }
 
 ' ---------- Relações (Associations) ----------
 
 ' Relações de Agendamento (Appointment)
-SNSUser "1" -- "0..*" Appointment : "schedules" [cite: 64]
+SNSUser "1" -- "0..*" Appointment : "schedules"
 Receptionist "0..*" -- "0..*" Appointment : "schedules (in-person)"
 Receptionist "1" -- "0..*" Appointment : "registers arrival for"
-VaccinationCenter "1" -- "0..*" Appointment : "occurs at" [cite: 65]
-Appointment "1" -- "1" VaccineType : "is for" [cite: 65]
+VaccinationCenter "1" -- "0..*" Appointment : "occurs at"
+Appointment "1" -- "1" VaccineType : "is for"
 
 ' Relações de Eventos (Event)
 Appointment "1" -- "0..1" VaccinationEvent : "results in"
 VaccinationEvent "0..*" -- "1" Nurse : "recorded by"
 VaccinationEvent "1" -- "1" Vaccine : "uses (brand)"
 VaccinationEvent "1" -- "1" VaccineType : "is for (type)"
-VaccinationEvent "1" -- "0..*" AdverseReaction : "can cause" [cite: 81-82]
-AdverseReaction "0..*" -- "1" Nurse : "recorded by" [cite: 82]
+VaccinationEvent "1" -- "0..*" AdverseReaction : "can cause"
+AdverseReaction "0..*" -- "1" Nurse : "recorded by"
 
 ' Relações de Vacinas (Vaccine)
 Vaccine "0..*" -- "1" VaccineType : "is of"
 Vaccine "0..*" -- "1" VaccineTechnology : "uses"
-HealthcareCenter "1" -- "1..*" VaccineType : "administers" [cite: 32]
-CommunityMassVaccinationCenter "1" -- "1" VaccineType : "administers" [cite: 33]
+HealthcareCenter "1" -- "1..*" VaccineType : "administers"
+CommunityMassVaccinationCenter "1" -- "1" VaccineType : "administers"
 
 ' Relações de Certificados (Certificate)
-VaccinationCertificate "0..*" -- "1" SNSUser : "obtained by" [cite: 50]
-VaccinationCertificate "0..*" -- "1" Nurse : "issued by (on-site)" [cite: 56]
+VaccinationCertificate "0..*" -- "1" SNSUser : "obtained by"
+VaccinationCertificate "0..*" -- "1" Nurse : "issued by (on-site)"
 
 ' Relações de Gestão (Admin)
-DGSAdministrator "1" -- "0..*" VaccinationCenter : "manages/registers" [cite: 83]
-DGSAdministrator "1" -- "0..*" Personnel : "manages/registers" [cite: 83]
-DGSAdministrator "1" -- "0..*" Vaccine : "manages/registers" [cite: 84]
-DGSAdministrator "1" -- "0..*" VaccineType : "manages/registers" [cite: 84]
+DGSAdministrator "1" -- "0..*" VaccinationCenter : "manages/registers"
+DGSAdministrator "1" -- "0..*" Personnel : "manages/registers"
+DGSAdministrator "1" -- "0..*" Vaccine : "manages/registers"
+DGSAdministrator "1" -- "0..*" VaccineType : "manages/registers"
 
 @enduml
