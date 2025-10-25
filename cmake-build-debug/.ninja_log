@@ -1,0 +1,18 @@
+# ninja log v6
+20	405	7831015915434981	Core/CMakeFiles/Core.dir/sources/domain/shared/Result.cpp.obj	41611b5eff41eae6
+71	450	7831015915945529	CMakeFiles/project-template.dir/main.cpp.obj	13c19273c710fa9
+110	460	7831015916326424	ConsoleApp/CMakeFiles/ConsoleApp.dir/ConsoleApp.cpp.obj	944c3882319b53a
+33	506	7831015915557894	Core/CMakeFiles/Core.dir/sources/domain/shared/StringUtils.cpp.obj	36cb2f9f2f72b71a
+506	1018	7831015920283889	Core/libCore.a	d34a0b48aef09924
+57	1153	7831015915795364	CoreTests/lib/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj	904bb045e56d4a5b
+1018	1159	7831015925415956	project-template.exe	1ba9e02333fa3861
+1029	1159	7831015925524958	ConsoleApp/ConsoleApp.exe	90965cea984e75c2
+84	1191	7831015916075938	CoreTests/CMakeFiles/CoreTests.dir/domain/shared/StringUtilsTests.cpp.obj	eb485e0da043b34a
+98	1279	7831015916206230	CoreTests/lib/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj	76727e629d68e973
+45	2023	7831015915673728	CoreTests/lib/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj	b8cf5bda53869461
+4	4657	7831015915259293	CoreTests/lib/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj	d5cda2093410023e
+4658	6966	7831015961807191	lib/libgtest.a	3dbd42f4e505c688
+6975	7065	7831015984983807	lib/libgtest_main.a	4a68e0726334ead2
+6966	7269	7831015984887359	lib/libgmock.a	800824eacae1f4b0
+7269	7367	7831015987923872	lib/libgmock_main.a	8a021b222e3afdde
+7065	10161	7831015985882447	CoreTests/CoreTests.exe	154d11967ebfc468
