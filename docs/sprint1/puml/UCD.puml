@@ -1,7 +1,7 @@
 @startuml
 'https://plantuml.com/use-case-diagram
 
-title Use Case Diagram for PVMS
+title Use Case Diagram
 
 
 :Admin DGS: as Admin
