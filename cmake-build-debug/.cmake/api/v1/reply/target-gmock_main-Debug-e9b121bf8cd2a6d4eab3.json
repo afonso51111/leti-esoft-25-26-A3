@@ -106,27 +106,27 @@
 			[
 				{
 					"backtrace" : 8,
-					"path" : "C:/Users/ruima/Documents/ESOFT/leti-esoft-25-26-A3/Core"
+					"path" : "C:/Users/ribei/esoft/leti-esoft-25-26-A3/Core"
 				},
 				{
 					"backtrace" : 9,
 					"isSystem" : true,
-					"path" : "C:/Users/ruima/Documents/ESOFT/leti-esoft-25-26-A3/CoreTests/lib/googlemock/include"
+					"path" : "C:/Users/ribei/esoft/leti-esoft-25-26-A3/CoreTests/lib/googlemock/include"
 				},
 				{
 					"backtrace" : 9,
 					"isSystem" : true,
-					"path" : "C:/Users/ruima/Documents/ESOFT/leti-esoft-25-26-A3/CoreTests/lib/googlemock"
+					"path" : "C:/Users/ribei/esoft/leti-esoft-25-26-A3/CoreTests/lib/googlemock"
 				},
 				{
 					"backtrace" : 9,
 					"isSystem" : true,
-					"path" : "C:/Users/ruima/Documents/ESOFT/leti-esoft-25-26-A3/CoreTests/lib/googletest/include"
+					"path" : "C:/Users/ribei/esoft/leti-esoft-25-26-A3/CoreTests/lib/googletest/include"
 				},
 				{
 					"backtrace" : 9,
 					"isSystem" : true,
-					"path" : "C:/Users/ruima/Documents/ESOFT/leti-esoft-25-26-A3/CoreTests/lib/googletest"
+					"path" : "C:/Users/ribei/esoft/leti-esoft-25-26-A3/CoreTests/lib/googletest"
 				}
 			],
 			"language" : "CXX",

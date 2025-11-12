@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "project-template.exe"
+			"path" : "ConsoleApp/ConsoleApp.exe"
 		},
 		{
-			"path" : "project-template.pdb"
+			"path" : "ConsoleApp/ConsoleApp.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -19,6 +19,7 @@
 		],
 		"files" : 
 		[
+			"ConsoleApp/CMakeLists.txt",
 			"CMakeLists.txt"
 		],
 		"nodes" : 
@@ -29,20 +30,23 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 5,
+				"line" : 3,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 12,
+				"line" : 5,
 				"parent" : 0
 			},
 			{
+				"file" : 1
+			},
+			{
 				"command" : 2,
-				"file" : 0,
+				"file" : 1,
 				"line" : 7,
-				"parent" : 0
+				"parent" : 3
 			}
 		]
 	},
@@ -58,8 +62,8 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 3,
-					"path" : "C:/Users/ruima/Documents/ESOFT/leti-esoft-25-26-A3/Core"
+					"backtrace" : 4,
+					"path" : "C:/Users/ribei/esoft/leti-esoft-25-26-A3/Core"
 				}
 			],
 			"language" : "CXX",
@@ -84,7 +88,7 @@
 			"id" : "Core::@94795ff35dabbbd3a8ca"
 		}
 	],
-	"id" : "project-template::@6890427a1f51a3e7e1df",
+	"id" : "ConsoleApp::@094f471c0171374cf8fe",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -99,7 +103,7 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "Core\\libCore.a",
+				"fragment" : "..\\Core\\libCore.a",
 				"role" : "libraries"
 			},
 			{
@@ -109,12 +113,12 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "project-template",
-	"nameOnDisk" : "project-template.exe",
+	"name" : "ConsoleApp",
+	"nameOnDisk" : "ConsoleApp.exe",
 	"paths" : 
 	{
-		"build" : ".",
-		"source" : "."
+		"build" : "ConsoleApp",
+		"source" : "ConsoleApp"
 	},
 	"sourceGroups" : 
 	[
@@ -131,7 +135,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "main.cpp",
+			"path" : "ConsoleApp/ConsoleApp.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],
